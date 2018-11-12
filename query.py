@@ -17,3 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # connect SQLAlchemy to the configured flask app
 db = SQLAlchemy(app)
+
+
+
+{'dbn': '01M292', 'school_name': 'HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES', 'test_takers': '29', 'reading_avg': '355', 'math_avg': '404', 'writing_avg': '363'}, {'dbn': '01M448', 'school_name': 'UNIVERSITY NEIGHBORHOOD HIGH SCHOOL', 'test_takers': '91', 'reading_avg': '383', 'math_avg': '423', 'writing_avg': '366'},
