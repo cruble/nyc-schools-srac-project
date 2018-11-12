@@ -1,3 +1,4 @@
+from sat_score import sat_scores
 
 
 
@@ -15,4 +16,3 @@ get attendance
 get sat scores
 
 # make a session, add to database
-#hi chad

@@ -6,14 +6,15 @@ class School(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     dbn = db.Column(db.String, unique=True, nullable=False)
+	name= db.Column(db.String, nullable= False)
 
     # def __repr__(self):
-    #     return '<User %r>' % self.username 
-    #have many ratings 
-    #have many sub ratings through ratings 
+    #     return '<User %r>' % self.username
+    #have many ratings
+    #have many sub ratings through ratings
 
     #has_many schoolattendances
-    #has_many schoolSATs 
+    #has_many schoolSATs
 
 class Rating(db.Model):
 	__tablename__ = 'schools'
@@ -21,7 +22,7 @@ class Rating(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     dbn = db.Column(db.String, unique=True, nullable=False)
     # some kind of dates
-    #belongs to a school 
+    #belongs to a school
     #year
     # minimum is overall_rating (some are none, have to deal with that)
     # decide how granular.. I think we do it all and create ~6 rating_sub_categories
@@ -32,12 +33,12 @@ class InstructionalCore(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # dbn = db.Column(db.String, unique=True, nullable=False)
     # belongs_to a rating
-    #we want these to be integers.. so preprocess as integers. 
+    #we want these to be integers.. so preprocess as integers.
     ic_1_1
-    ic_1_2 
+    ic_1_2
     ic_2_2
 
-    
+
 class SchoolCulture(db.Model):
 	__tablename__ = 'school_culturess'
 
@@ -64,28 +65,28 @@ class SchoolAttendance(db.Model):
 
 	id = db.Column(db.Integer, primary_key=True)
 
-	# belongs to a school 
+	# belongs to a school
 
-	year #and yes, we need to process that in seed 
+	year #and yes, we need to process that in seed
 	school
-	total_roster 
-	percentage_absent 
-	percentage_present 
-	number_of absent 
+	total_roster
+	percentage_absent
+	percentage_present
+	number_of absent
 
 
 class SchoolSAT(db.Model):
 	__tablename__ = 'school_culturess'
 
 	id = db.Column(db.Integer, primary_key=True)
-	year = 
-	#belongs to a school 
+	year =
+	#belongs to a school
 	school_id
 	# school_dbn
 	# school_name
-	math_avg 
+	math_avg
 	reading_avg
-	overall_avg 
+	overall_avg
 
 
 
