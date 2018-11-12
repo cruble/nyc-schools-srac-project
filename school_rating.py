@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # import requests
 # r= requests.get('https://data.cityofnewyork.us/resource/i3q5-gtjn').json()
 # school_rating= r
@@ -15,3 +16,9 @@ school_rating
 # reader= csv.reader(f)
 # for row in reader
 # print row
+=======
+import requests
+r= requests.get('https://data.cityofnewyork.us/resource/i3q5-gtjn').json()
+school_rating= r
+school_rating
+>>>>>>> 1b5a49f13bf6f4149c4a0d61fa5e7bdf8667ec7e

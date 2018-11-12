@@ -11,7 +11,10 @@ sat_scores
 # del sat_school1['sat_writing_avg_score']
 
 def sat_score():
+<<<<<<< HEAD
     formatted_scores = []
+=======
+>>>>>>> 1b5a49f13bf6f4149c4a0d61fa5e7bdf8667ec7e
     for sat_school1 in sat_scores:
         for key in sat_school1:
             if key == 'num_of_sat_test_takers':
@@ -20,12 +23,20 @@ def sat_score():
                 sat_school1['reading_avg']= sat_school1.pop('sat_critical_reading_avg_score')
             if key== 'sat_math_avg_score':
                 sat_school1['math_avg']= sat_school1.pop('sat_math_avg_score')
+<<<<<<< HEAD
             formatted_scores.append(sat_school1)
             if key== 'sat_writing_avg_score':
                  sat_school1['writing_avg']= sat_school1.pop('sat_writing_avg_score')
     return formatted_scores
 
 print(sat_score())
+=======
+            # if key== 'sat_writing_avg_score':
+            #      del sat_school1['sat_writing_avg_score']
+    return sat_school1
+
+
+>>>>>>> 1b5a49f13bf6f4149c4a0d61fa5e7bdf8667ec7e
 
 # def sat_score():
 #     counter=len(sat_scores)
