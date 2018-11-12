@@ -61,12 +61,12 @@ class SchoolSAT(db.Model):
 
 # class Rating(db.Model):
 # 	__tablename__ = 'sc6hools'
-class Rating(db.model):
+class Rating(db.Model):
 	__tablename__= 'ratings'
 	id= db.Column(db.Integer, primary_key= True)
 	bn= db.Column(db.String, unique= True, nullable= False)
 	year= db.Column(db.Integer, nullable=False)
-	school= relationship('School', back_populates='ratings')
+	school= db.relationship('School', back_populates='ratings')
 	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
 	core= db.relationship('Core', uselist=False, back_populates= 'ratings')
 	culture= db.relationship('Culture', uselist=False, back_populates= 'ratings')
@@ -122,7 +122,7 @@ class Improvements(db.Model):
 # 	id = db.Column(db.Integer, primary_key=True)
 # 	month= db.Column(db.Integer, nullable= False)
 # 	year= db.Column(db.Integer, nullable= False)
-# 	total_rosters=
+# 	total_rosters= db.Column
 
 # 	# belongs to a school
 # 	year #and yes, we need to process that in seed

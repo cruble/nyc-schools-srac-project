@@ -1,5 +1,7 @@
 from sat_data import sat_data_list
-from app import db, School, SchoolSAT
+from app import *
+from ratings_data import ratings_list
+
 import pdb
 # creates the SATSchool and School models and tables in the database
 db.create_all()
