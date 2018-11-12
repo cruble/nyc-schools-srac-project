@@ -21,9 +21,8 @@ def sat_score():
             if key== 'sat_math_avg_score':
                 sat_school1['math_avg']= sat_school1.pop('sat_math_avg_score')
             if key== 'sat_writing_avg_score':
-                 sat_school1['writing_avg']= sat_school1.pop('sat_writing_avg_score'
-            formatted_scores.append(sat_school1)
-)
+                 sat_school1['writing_avg']= sat_school1.pop('sat_writing_avg_score')
+        formatted_scores.append(sat_school1)
     return formatted_scores
 
 print(sat_score())

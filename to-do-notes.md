@@ -55,3 +55,7 @@ https://data.cityofnewyork.us/Education/2012-2017-Historical-Monthly-Grade-Level
 
 graduation rate 2016-2017
 https://data.cityofnewyork.us/Education/2016-2017-Graduation-Outcomes-School/nb39-jx2v
+
+
+{'dbn': '01M292', 'school_name': 'HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES', 'test_takers': '29', 'reading_avg': '355', 'math_avg': '404', 'writing_avg': '363'}, {'dbn': '01M448', 'school_name': 'UNIVERSITY NEIGHBORHOOD HIGH SCHOOL', 'test_takers': '91', 'reading_avg': '383', 'math_avg': '423', 'writing_avg': '366'},
+, overall_avg = int(school['math_avg']) + int(school['writing_avg']) + int(school['reading_avg'])
