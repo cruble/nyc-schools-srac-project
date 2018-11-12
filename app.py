@@ -24,15 +24,15 @@ class School(db.Model):
 	__tablename__ = 'schools'
 	id = db.Column(db.Integer, primary_key=True)
 	dbn = db.Column(db.String, unique=True, nullable=False)
-	# bn= db.Column(db.String, unique=True, nullable=False)
+	bn = db.Column(db.String, nullable=False)
 	name= db.Column(db.String, nullable= False)
 	#has_many schoolSATs
 	sats = db.relationship('SchoolSAT', back_populates='school')
 	ratings= db.relationship('Rating', back_populates='school')
 
-	def bn(self):
-		new_string= self.db[2:6]
-		return new_string
+	# def bn(self):
+	# 	new_string= self.dbn[2:6]
+	# 	return new_string
 
 class SchoolSAT(db.Model):
 	__tablename__ = 'school_sats'
@@ -68,9 +68,9 @@ class Rating(db.Model):
 	year= db.Column(db.Integer, nullable=False)
 	school= db.relationship('School', back_populates='ratings')
 	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
-	core= db.relationship('Core', uselist=False, back_populates= 'ratings')
-	culture= db.relationship('Culture', uselist=False, back_populates= 'ratings')
-	improvement= db.relationship('improvement', uselist=False, back_populates= 'ratings')
+	core= db.relationship('Core', uselist=False, back_populates= 'rating')
+	culture= db.relationship('Culture', uselist=False, back_populates= 'rating')
+	improvement= db.relationship('Improvement', uselist=False, back_populates= 'rating')
 
 
 
@@ -106,8 +106,8 @@ class Culture(db.Model):
 #     # belongs_to a rating
 
 
-class Improvements(db.Model):
-	__tablename__ = 'Improvements'
+class Improvement(db.Model):
+	__tablename__ = 'improvements'
 	id = db.Column(db.Integer, primary_key=True)
 	si_1_3= db.Column(db.Integer, nullable=False)
 	si_3_1= db.Column(db.Integer, nullable=False)
@@ -134,5 +134,5 @@ class Improvements(db.Model):
 
 
 # run the server
-if __name__ == "__main__":
-	app.run()
+# if __name__ == "__main__":
+# 	app.run()
