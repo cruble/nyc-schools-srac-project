@@ -24,9 +24,15 @@ class School(db.Model):
 	__tablename__ = 'schools'
 	id = db.Column(db.Integer, primary_key=True)
 	dbn = db.Column(db.String, unique=True, nullable=False)
+	# bn= db.Column(db.String, unique=True, nullable=False)
 	name= db.Column(db.String, nullable= False)
 	#has_many schoolSATs
 	sats = db.relationship('SchoolSAT', back_populates='school')
+	ratings= db.relationship('Rating', back_populates='school')
+
+	def bn(self):
+		new_string= self.db[2:6]
+		return new_string
 
 class SchoolSAT(db.Model):
 	__tablename__ = 'school_sats'
@@ -40,7 +46,7 @@ class SchoolSAT(db.Model):
 	writing_avg = db.Column(db.Integer, nullable=False)
 	takers = db.Column(db.Integer, nullable=False)
 
-	#belongs to a school 
+	#belongs to a school
 	school_id = db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
 	school = db.relationship('School', back_populates="sats")
 
@@ -54,7 +60,19 @@ class SchoolSAT(db.Model):
 	#has_many schoolSATs
 
 # class Rating(db.Model):
-# 	__tablename__ = 'schools'
+# 	__tablename__ = 'sc6hools'
+class Rating(db.model):
+	__tablename__= 'ratings'
+	id= db.Column(db.Integer, primary_key= True)
+	bn= db.Column(db.String, unique= True, nullable= False)
+	year= db.Column(db.Integer, nullable=False)
+	school= relationship('School', back_populates='ratings')
+	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
+	core= db.relationship('Core', uselist=False, back_populates= 'ratings')
+	culture= db.relationship('Culture', uselist=False, back_populates= 'ratings')
+	improvement= db.relationship('improvement', uselist=False, back_populates= 'ratings')
+
+
 
 #     id = db.Column(db.Integer, primary_key=True)
 #     dbn = db.Column(db.String, unique=True, nullable=False)
@@ -64,46 +82,49 @@ class SchoolSAT(db.Model):
 	# minimum is overall_rating (some are none, have to deal with that)
 	# decide how granular.. I think we do it all and create ~6 rating_sub_categories
 
-# class InstructionalCore(db.Model):
-# 	__tablename__ = 'instructional_cores'
+class Core(db.Model):
+	__tablename__ = 'cores'
+	id = db.Column(db.Integer, primary_key=True)
+	ic_1_1= db.Column(db.Integer, nullable=False)
+	ic_1_2= db.Column(db.Integer, nullable=False)
+	ic_2_2= db.Column(db.Integer, nullable=False)
+	rating= db.relationship('Rating', back_populates='core')
+	rating_id= db.Column(db.Integer, db.ForeignKey('ratings.id'), nullable=False)
+	#     # dbn = db.Column(db.String, unique=True, nullable=False)
+	#     # belongs_to a rating
+	#     #we want these to be integers.. so preprocess as integers.
 
-#     id = db.Column(db.Integer, primary_key=True)
+
+class Culture(db.Model):
+	__tablename__ = 'cultures'
+	id = db.Column(db.Integer, primary_key=True)
+	sc_1_4= db.Column(db.Integer, nullable=False)
+	sc_3_4= db.Column(db.Integer, nullable=False)
+	rating= db.relationship('Rating', back_populates='culture')
+	rating_id= db.Column(db.Integer, db.ForeignKey('ratings.id'), nullable=False)
 #     # dbn = db.Column(db.String, unique=True, nullable=False)
 #     # belongs_to a rating
-#     #we want these to be integers.. so preprocess as integers.
-#     ic_1_1
-#     ic_1_2
-#     ic_2_2
 
 
-# class SchoolCulture(db.Model):
-# 	__tablename__ = 'school_culturess'
+class Improvements(db.Model):
+	__tablename__ = 'Improvements'
+	id = db.Column(db.Integer, primary_key=True)
+	si_1_3= db.Column(db.Integer, nullable=False)
+	si_3_1= db.Column(db.Integer, nullable=False)
+	si_4_1= db.Column(db.Integer, nullable=False)
+	si_5_1= db.Column(db.Integer, nullable=False)
+	rating= db.relationship('Rating', back_populates='improvement')
+	rating_id= db.Column(db.Integer, db.ForeignKey('ratings.id'), nullable=False)
+	#     # belongs_to a rating
 
-#     id = db.Column(db.Integer, primary_key=True)
-#     # dbn = db.Column(db.String, unique=True, nullable=False)
-#     # belongs_to a rating
-#     sc_1_4
-#     sc_3_4
-
-
-# class SchoolImprovements(db.Model):
-# 	__tablename__ = 'school_culturess'
-
-#     id = db.Column(db.Integer, primary_key=True)
-#     # belongs_to a rating
-
-#     si_1_3
-#     si_3_1
-#     si_4_1
-#     si_5_1
-
-# class SchoolAttendance(db.Model):
-# 	__tablename__ = 'school_culturess'
-
+# class Attendance(db.Model):
+# 	__tablename__ = 'attendances'
 # 	id = db.Column(db.Integer, primary_key=True)
+# 	month= db.Column(db.Integer, nullable= False)
+# 	year= db.Column(db.Integer, nullable= False)
+# 	total_rosters=
 
 # 	# belongs to a school
-
 # 	year #and yes, we need to process that in seed
 # 	school
 # 	total_roster
