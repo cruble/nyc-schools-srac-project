@@ -1,10 +1,11 @@
 
+
 import pandas as pd 
 
 # dct = pd.read_csv('school_ratings.csv', index_col=0, squeeze=True).to_dict()
 
-dt = pd.read_csv('school_ratings.csv').T.to_dict()
-
+dt = pd.read_csv('../data_store/2012_2017_school_attendance.csv').T.to_dict()
+outer_limit = len(dt) - 1
 
 # df = pd.read_csv("school_ratings.csv")
 # read the date and close column and store as a list.
@@ -21,8 +22,10 @@ dt = pd.read_csv('school_ratings.csv').T.to_dict()
 #     perfect_dict.append(temp_dict)
 # print(perfect_dict)
 clean_dicts = []
-for i in range(0, 8063): 
+for i in range(0, outer_limit): 
 	new_dict = dt[i]
 	clean_dicts.append(new_dict)
 
-# print(clean_dicts)
+print(clean_dicts)
+
+# ../data_store/2012_2017_school_attendance.csv 
