@@ -3,3 +3,8 @@
 *.sqlite
 *.pyc 
 attendance_data.py
+
+grade_10_data.py
+grade_11_data.py
+grade_12_data.py
+grade_9_data.py
