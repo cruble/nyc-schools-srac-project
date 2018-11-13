@@ -41,7 +41,8 @@ https://data.cityofnewyork.us/Education/2018-19-Quality-Review-School-List/2rr4-
 sat_scores
 https://data.cityofnewyork.us/Education/2012-SAT-Results/f9bf-2cp4
 
-
+SAT_ 2010 
+https://data.cityofnewyork.us/Education/2010-SAT-College-Board-School-Level-Results/zt9s-n5aj
 
 
 attendance 2012 - 2017
@@ -77,6 +78,8 @@ P = Proficient 3
 WD = Well Developed 4 
 <!-- O = Outstanding (only an option in 2007-8) 4.5 
  -->
+
+ratings= {'No Data': 0, 'U': 1, 'U ': 1, 'UD': 1, 'U/UD': 1, 'D': 2, 'P': 3, 'WD': 4, 'O':4, 'UPF': 1, '0': 0, 'DYO': 0}
 
  {'BN': 'M307', 'School_Year': '06/01/2005 12:00:00 AM', 'Start_Date': '04/03/2006 12:00:00 AM', 'Overall_Rating': 'P', 'Indicator_1.1': 'P', 'Indicator_1.2': 'P', 'Indicator_1.3': 'P', 'Indicator_1.4': 'P', 'Indicator_1.5': 'No Data', 'Indicator_1.6': 'No Data', 'Indicator_1.7': 'No Data', 'IndicatorOverall_1': 'P', 'Indicator_2.1': 'WD', 'Indicator_2.2': 'WD', 'Indicator_2.3': 'WD', 'Indicator_2.4': 'WD', 'Indicator_2.5': 'WD', 'Indicator_2.6': 'No Data', 'Indicator_2.7': 'No Data', 'IndicatorOverall_2': 'WD', 'Indicator_3.1': 'WD', 'Indicator_3.2': 'WD', 'Indicator_3.3': 'WD', 'Indicator_3.4': 'WD', 'Indicator_3.5': 'WD', 'Indicator_3.6': 'WD', 'Indicator_3.7': 'WD', 'Indicator_3.8': 'WD', 'IndicatorOverall_3': 'WD', 'Indicator_4.1': 'WD', 'Indicator_4.2': 'WD', 'Indicator_4.3': 'WD', 'Indicator_4.4': 'WD', 'Indicator_4.5': 'WD', 'Indicator_4.6': 'WD', 'Indicator_4.7': 'WD', 'IndicatorOverall_4': 'WD', 'Indicator_5.1': 'P', 'Indicator_5.2': 'P', 'Indicator_5.3': 'P', 'Indicator_5.4': 'P', 'Indicator_5.5': 'No Data', 'Indicator_5.6': 'No Data', 'Indicator_5.7': 'No Data', 'IndicatorOverall_5': 'P'}
 

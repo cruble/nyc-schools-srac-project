@@ -23,7 +23,7 @@ db = SQLAlchemy(app)
 class School(db.Model):
 	__tablename__ = 'schools'
 	id = db.Column(db.Integer, primary_key=True)
-	dbn = db.Column(db.String, unique=True, nullable=False)
+	dbn = db.Column(db.String, nullable=False)
 	bn = db.Column(db.String, nullable=False)
 	name= db.Column(db.String, nullable= False)
 	#has_many schoolSATs
@@ -64,10 +64,13 @@ class SchoolSAT(db.Model):
 class Rating(db.Model):
 	__tablename__= 'ratings'
 	id= db.Column(db.Integer, primary_key= True)
-	bn= db.Column(db.String, unique= True, nullable= False)
+	bn= db.Column(db.String, nullable= False)
 	year= db.Column(db.Integer, nullable=False)
+	overall= db.Column(db.Integer, nullable=False)
+
 	school= db.relationship('School', back_populates='ratings')
 	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
+
 	core= db.relationship('Core', uselist=False, back_populates= 'rating')
 	culture= db.relationship('Culture', uselist=False, back_populates= 'rating')
 	improvement= db.relationship('Improvement', uselist=False, back_populates= 'rating')
@@ -79,7 +82,7 @@ class Rating(db.Model):
 	# some kind of dates
 	#belongs to a school
 	#year
-	# minimum is overall_rating (some are none, have to deal with that)
+	#  overall_rating (some are none, have to deal with that)
 	# decide how granular.. I think we do it all and create ~6 rating_sub_categories
 
 class Core(db.Model):
