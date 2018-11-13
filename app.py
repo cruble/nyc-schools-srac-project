@@ -120,12 +120,54 @@ class Improvement(db.Model):
 	rating_id= db.Column(db.Integer, db.ForeignKey('ratings.id'), nullable=False)
 	#     # belongs_to a rating
 
-# class Attendance(db.Model):
-# 	__tablename__ = 'attendances'
-# 	id = db.Column(db.Integer, primary_key=True)
-# 	month= db.Column(db.Integer, nullable= False)
-# 	year= db.Column(db.Integer, nullable= False)
-# 	total_rosters= db.Column
+class Attendance_Year(db.Model):
+	__tablename__ = 'attendance_years'
+	id = db.Column(db.Integer, primary_key=True)
+	# month= db.Column(db.Integer, nullable= False)
+	year= db.Column(db.Integer, nullable= False)
+	rosters= db.Column(db.Integer, nullable=False)
+	absent= db.Column(db.Integer, nullable=False)
+	present= db.Column(db.Integer, nullable= False)
+	grade_9= db.relationship('Grade_9', uselist= False, back_populates='attendance_year')
+	grade_10= db.relationship('Grade_10', uselist= False, back_populates='attendance_year')
+	grade_11= db.relationship('Grade_11', uselist= False, back_populates='attendance_year')
+	grade_12= db.relationship('Grade_12', uselist= False, back_populates='attendance_year')
+
+class Grade_9(db.Model):
+	id= db.Column(db.Integer, primary_key=True)
+	rosters= db.Column(db.Integer, nullable=False)
+	absent= db.Column(db.Integer, nullable=False)
+	present= db.Column(db.Integer, nullable= False)
+	year= db.Column(db.Integer, nullable= False)
+	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_9')
+	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+class Grade_10(db.Model):
+	id= db.Column(db.Integer, primary_key=True)
+	rosters= db.Column(db.Integer, nullable=False)
+	absent= db.Column(db.Integer, nullable=False)
+	present= db.Column(db.Integer, nullable= False)
+	year= db.Column(db.Integer, nullable= False)
+	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_10')
+	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+
+class Grade_11(db.Model):
+	id= db.Column(db.Integer, primary_key=True)
+	rosters= db.Column(db.Integer, nullable=False)
+	absent= db.Column(db.Integer, nullable=False)
+	present= db.Column(db.Integer, nullable= False)
+	year= db.Column(db.Integer, nullable= False)
+	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_11')
+	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+
+class Grade_12(db.Model):
+	id= db.Column(db.Integer, primary_key=True)
+	rosters= db.Column(db.Integer, nullable=False)
+	absent= db.Column(db.Integer, nullable=False)
+	present= db.Column(db.Integer, nullable= False)
+	year= db.Column(db.Integer, nullable= False)
+	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_12')
+	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+
 
 # 	# belongs to a school
 # 	year #and yes, we need to process that in seed
