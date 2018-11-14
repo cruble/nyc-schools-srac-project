@@ -162,7 +162,7 @@ mega_list_2016s = sats_rating_year_data(2016)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-# ratings = ['1', '2' ,'3', '4']
+ratings = ['1', '2' ,'3', '4']
 
 app2.layout = html.Div([
 	dcc.Graph(
@@ -170,8 +170,8 @@ app2.layout = html.Div([
 		figure={
 			'data': [
 				go.Scatter(
-					x= mega_list_2013[3],
-					y= mega_list_2013[4],
+					x= mega_list_2013[2],
+					y= mega_list_2013[3],
 					text= mega_list_2013[0],
 					mode='markers',
 					opacity=0.7,
@@ -180,11 +180,11 @@ app2.layout = html.Div([
 						'line': {'width': 0.5, 'color': 'white'}
 					},
 					name=i
-				) for i in (set(mega_list_2013[4]))
+				) for i in ratings
 			],
 			'layout': go.Layout(
-				xaxis={'type': 'log', 'title': 'GDP Per Capita'},
-				yaxis={'title': 'Life Expectancy'},
+				xaxis={'type': 'log', 'title': 'Sat Scores - Math'},
+				yaxis={'title': 'Absent:Present Ratio'},
 				margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
 				legend={'x': 0, 'y': 1},
 				hovermode='closest'
