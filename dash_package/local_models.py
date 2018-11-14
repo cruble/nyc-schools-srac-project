@@ -17,6 +17,7 @@
 # from dash_package import db
 # connect SQLAlchemy to the configured flask app
 from local_query import db
+# from dashboard2 import *
 # db = SQLAlchemy(app)
 
 

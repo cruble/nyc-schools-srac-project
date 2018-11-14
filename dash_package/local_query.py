@@ -29,7 +29,12 @@ def overall_rating():
     # return {'x': school_name, 'y': overall_rating, 'type': 'bar', 'name': 'school_ratings'}
 
 
-
+def load_total_attendance():
+    for ay in Attendance_Year.query.all(): 
+        ay.total_absent = ay.grade_9_absent + ay.grade_10_absent + ay.grade_11_absent + ay.grade_12_absent
+        ay.total_present = ay.grade_9_present + ay.grade_10_present + ay.grade_11_present + ay.grade_12_present
+        db.session.add(ay) 
+        db.session.commit()
 
 
 
