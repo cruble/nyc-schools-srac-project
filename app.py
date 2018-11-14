@@ -29,6 +29,7 @@ class School(db.Model):
 	#has_many schoolSATs
 	sats = db.relationship('SchoolSAT', back_populates='school')
 	ratings= db.relationship('Rating', back_populates='school')
+	attendance_years = db.relationship('Attendance_Year', back_populates='school')
 
 	# def bn(self):
 	# 	new_string= self.dbn[2:6]
@@ -124,49 +125,61 @@ class Attendance_Year(db.Model):
 	__tablename__ = 'attendance_years'
 	id = db.Column(db.Integer, primary_key=True)
 	# month= db.Column(db.Integer, nullable= False)
+	dbn= db.Column(db.String, nullable = False)
 	year= db.Column(db.Integer, nullable= False)
-	rosters= db.Column(db.Integer, nullable=False)
-	absent= db.Column(db.Integer, nullable=False)
-	present= db.Column(db.Integer, nullable= False)
-	grade_9= db.relationship('Grade_9', uselist= False, back_populates='attendance_year')
-	grade_10= db.relationship('Grade_10', uselist= False, back_populates='attendance_year')
-	grade_11= db.relationship('Grade_11', uselist= False, back_populates='attendance_year')
-	grade_12= db.relationship('Grade_12', uselist= False, back_populates='attendance_year')
+	roster= db.Column(db.Integer, nullable=False)
+	total_absent= db.Column(db.Integer, nullable=False)
+	total_present= db.Column(db.Integer, nullable= False)
 
-class Grade_9(db.Model):
-	id= db.Column(db.Integer, primary_key=True)
-	rosters= db.Column(db.Integer, nullable=False)
-	absent= db.Column(db.Integer, nullable=False)
-	present= db.Column(db.Integer, nullable= False)
-	year= db.Column(db.Integer, nullable= False)
-	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_9')
-	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
-class Grade_10(db.Model):
-	id= db.Column(db.Integer, primary_key=True)
-	rosters= db.Column(db.Integer, nullable=False)
-	absent= db.Column(db.Integer, nullable=False)
-	present= db.Column(db.Integer, nullable= False)
-	year= db.Column(db.Integer, nullable= False)
-	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_10')
-	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+	school= db.relationship('School', back_populates='attendance_years')
+	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
 
-class Grade_11(db.Model):
-	id= db.Column(db.Integer, primary_key=True)
-	rosters= db.Column(db.Integer, nullable=False)
-	absent= db.Column(db.Integer, nullable=False)
-	present= db.Column(db.Integer, nullable= False)
-	year= db.Column(db.Integer, nullable= False)
-	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_11')
-	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+	grade_9_absent= db.Column(db.Integer)
+	grade_9_present= db.Column(db.Integer)
+	grade_10_absent= db.Column(db.Integer)
+	grade_10_present= db.Column(db.Integer)
+	grade_11_absent= db.Column(db.Integer)
+	grade_11_present= db.Column(db.Integer)
+	grade_12_absent= db.Column(db.Integer)
+	grade_12_present= db.Column(db.Integer)
 
-class Grade_12(db.Model):
-	id= db.Column(db.Integer, primary_key=True)
-	rosters= db.Column(db.Integer, nullable=False)
-	absent= db.Column(db.Integer, nullable=False)
-	present= db.Column(db.Integer, nullable= False)
-	year= db.Column(db.Integer, nullable= False)
-	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_12')
-	attendance_year_id= db.Column(db.Integer, ForeignKey('attendance_years.id'), nullable= False)
+	
+
+
+# class Grade_9(db.Model):
+# 	id= db.Column(db.Integer, primary_key=True)
+# 	roster= db.Column(db.Integer, nullable=False)
+# 	absent= db.Column(db.Integer, nullable=False)
+# 	present= db.Column(db.Integer, nullable= False)
+# 	year= db.Column(db.Integer, nullable= False)
+# 	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_9')
+# 	attendance_year_id= db.Column(db.Integer, db.ForeignKey('attendance_years.id'), nullable= False)
+# class Grade_10(db.Model):
+# 	id= db.Column(db.Integer, primary_key=True)
+# 	roster= db.Column(db.Integer, nullable=False)
+# 	absent= db.Column(db.Integer, nullable=False)
+# 	present= db.Column(db.Integer, nullable= False)
+# 	year= db.Column(db.Integer, nullable= False)
+# 	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_10')
+# 	attendance_year_id= db.Column(db.Integer, db.ForeignKey('attendance_years.id'), nullable= False)
+
+# class Grade_11(db.Model):
+# 	id= db.Column(db.Integer, primary_key=True)
+# 	roster= db.Column(db.Integer, nullable=False)
+# 	absent= db.Column(db.Integer, nullable=False)
+# 	present= db.Column(db.Integer, nullable= False)
+# 	year= db.Column(db.Integer, nullable= False)
+# 	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_11')
+# 	attendance_year_id= db.Column(db.Integer, db.ForeignKey('attendance_years.id'), nullable= False)
+
+# class Grade_12(db.Model):
+# 	id= db.Column(db.Integer, primary_key=True)
+# 	roster= db.Column(db.Integer, nullable=False)
+# 	absent= db.Column(db.Integer, nullable=False)
+# 	present= db.Column(db.Integer, nullable= False)
+# 	year= db.Column(db.Integer, nullable= False)
+# 	attendance_year= db.relationship('Attendance_Year', back_populates= 'grade_12')
+# 	attendance_year_id= db.Column(db.Integer, db.ForeignKey('attendance_years.id'), nullable= False)
 
 
 # 	# belongs to a school
