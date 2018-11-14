@@ -24,6 +24,9 @@ for attendance in attendance_list:
 			# add for the first time 
 			mega_dict[school_year_key]['GradeLevel'] = {'Present':attendance['Present'] ,'Absent':attendance['Absent']}
 
+print("mega_attendance_dict = ", mega_dict)
+
+
 # grades = ['09','10','11','12']
 # mega_dict = {}
 # for attendance in attendance_list: 
@@ -51,7 +54,6 @@ for attendance in attendance_list:
 	# 		mega_list.append(new_dict)
 			# print(i, "check year: ", new_dict, new_dict['SchoolYear'])
 	# if new_dict['School']  and new_dict['SchoolYear']
-print("mega_attendance_dict = ", mega_dict)
 
 
 # attendance only for 9th, 10th, 11th, 12th 

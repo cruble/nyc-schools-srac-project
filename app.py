@@ -134,6 +134,13 @@ class Attendance_Year(db.Model):
 	school= db.relationship('School', back_populates='attendance_years')
 	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
 
+	
+	# grade_9 = db.relationship('Grade_9', back_populates= 'attendance_year')
+	# grade_10 = db.relationship('Grade_10', back_populates= 'attendance_year')
+	# grade_11 = db.relationship('Grade_11', back_populates= 'attendance_year')
+	# grade_12 = db.relationship('Grade_12', back_populates= 'attendance_year')
+
+
 	grade_9_absent= db.Column(db.Integer)
 	grade_9_present= db.Column(db.Integer)
 	grade_10_absent= db.Column(db.Integer)
@@ -143,7 +150,7 @@ class Attendance_Year(db.Model):
 	grade_12_absent= db.Column(db.Integer)
 	grade_12_present= db.Column(db.Integer)
 
-	
+
 
 
 # class Grade_9(db.Model):
