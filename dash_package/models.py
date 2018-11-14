@@ -1,22 +1,23 @@
 # import Flask and jsonify from flask
-from flask import Flask, render_template, jsonify
-# import SQLAlchemy from flask_sqlalchemy
-from flask_sqlalchemy import SQLAlchemy
+# from flask import Flask, render_template, jsonify
+# # import SQLAlchemy from flask_sqlalchemy
+# from flask_sqlalchemy import SQLAlchemy
 
 # initialize new flask app
-app = Flask(__name__)
+# app = Flask(__name__)
+#
+# # tell your flask app to run with debug mode on
+# app.config['DEBUG'] = True
+#
+#
+# # add configurations and database URI
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# tell your flask app to run with debug mode on
-app.config['DEBUG'] = True
-
-
-# add configurations and database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-
+from dash_package import db
 # connect SQLAlchemy to the configured flask app
-db = SQLAlchemy(app)
+# from query import db
+# db = SQLAlchemy(app)
 
 
 
@@ -134,7 +135,7 @@ class Attendance_Year(db.Model):
 	school= db.relationship('School', back_populates='attendance_years')
 	school_id= db.Column(db.Integer, db.ForeignKey('schools.id'), nullable=False)
 
-	
+
 	# grade_9 = db.relationship('Grade_9', back_populates= 'attendance_year')
 	# grade_10 = db.relationship('Grade_10', back_populates= 'attendance_year')
 	# grade_11 = db.relationship('Grade_11', back_populates= 'attendance_year')
