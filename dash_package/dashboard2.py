@@ -8,7 +8,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 
-
+from dash_package.mega_data import mega_list_2012, mega_list_2013, mega_list_2014, mega_list_2015, mega_list_2016, mega_list_2017
 
 def sat_avg():
 	name=[]
@@ -130,14 +130,22 @@ def sats_attendance_year_rating_data(year):
 			school_recent_rating.append(rating)
 	return [school_names, school_math_sats, school_reading_sats, school_attendance, school_recent_rating]
 
-mega_list_2012 = sats_attendance_year_rating_data(2012)
-mega_list_2013 = sats_attendance_year_rating_data(2013)
-mega_list_2014 = sats_attendance_year_rating_data(2014)
-mega_list_2015 = sats_attendance_year_rating_data(2015)
-mega_list_2016 = sats_attendance_year_rating_data(2016)
-mega_list_2017 = sats_attendance_year_rating_data(2017)
+# mega_list_2012 = sats_attendance_year_rating_data(2012)
+# mega_list_2013 = sats_attendance_year_rating_data(2013)
+# mega_list_2014 = sats_attendance_year_rating_data(2014)
+# mega_list_2015 = sats_attendance_year_rating_data(2015)
+# mega_list_2016 = sats_attendance_year_rating_data(2016)
+# mega_list_2017 = sats_attendance_year_rating_data(2017)
 
-mega_list_2016s = sats_rating_year_data(2016)
+# mega_list_2016s = sats_rating_year_data(2016)
+
+# print("mega_list_2012 = ", mega_list_2012)
+# print("mega_list_2013 = ", mega_list_2013)
+# print("mega_list_2014 = ", mega_list_2014)
+# print("mega_list_2015 = ", mega_list_2015)
+# print("mega_list_2016 = ", mega_list_2016)
+# print("mega_list_2017 = ", mega_list_2017)
+
 
 
 # mega_list_2012 = sats_rating_year_data(2012)

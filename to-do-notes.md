@@ -86,4 +86,5 @@ ratings= {'No Data': 0, 'U': 1, 'U ': 1, 'UD': 1, 'U/UD': 1, 'D': 2, 'P': 3, 'WD
 
 Note on school year. While some tables represent a school year as two years because it runs over two calendar years. 
 
+Also, for attendance per school per year, we are doing an absent to present ratio. Higher the ratio, the more absent... absent:present ranges from lowest to highest 
 
