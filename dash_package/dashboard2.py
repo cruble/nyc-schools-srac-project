@@ -182,7 +182,7 @@ dcc.Tabs(id="tabs", children=[
 		figure={
 			'data': [
 				go.Scatter(
-					x= mega_list_2013[2],
+					x= mega_list_2013[1],
 					y= mega_list_2013[3],
 					text= mega_list_2013[0],
 					mode='markers',
@@ -209,7 +209,7 @@ dcc.Tabs(id="tabs", children=[
 			figure=
 				{'data': [
 					go.Scatter(
-						x= mega_list_2013[1],
+						x= mega_list_2013[2],
 						y= mega_list_2013[3],
 						text= mega_list_2013[0],
 						mode= 'markers',
