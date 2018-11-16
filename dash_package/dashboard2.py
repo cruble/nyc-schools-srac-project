@@ -7,6 +7,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
+import plotly.plotly as py
 
 from dash_package.mega_data import mega_list_2012, mega_list_2013, mega_list_2014, mega_list_2015, mega_list_2016, mega_list_2017
 
@@ -33,40 +34,40 @@ def overall_rating():
 
 school_names = []
 school_math_sats = []
-school_reading_sats = [] 
+school_reading_sats = []
 school_ratings = []
 
 def school_rating_for_year(school_obj, year):
 	school = School.query.filter(School.id == school_obj.id).first()
-	for rating in school.ratings: 
-		if rating.year == year: 
+	for rating in school.ratings:
+		if rating.year == year:
 			return rating.overall
-		else: 
+		else:
 			return "0"
 
 def most_recent_rating(school_obj):
 	school = School.query.filter(School.id == school_obj.id).first()
-	if school.ratings: 
+	if school.ratings:
 		current_year = 0
 		most_recent = [0]
-		for rating in school.ratings: 
-			if rating.year > current_year and rating.overall: 
-				current_year = rating.year 
+		for rating in school.ratings:
+			if rating.year > current_year and rating.overall:
+				current_year = rating.year
 				most_recent[0] = rating
 		if most_recent[0].overall == 'None':
-			return 0 
-		return most_recent[0].overall 
-	else: 
+			return 0
+		return most_recent[0].overall
+	else:
 		return 0
 
 def most_recent_rating_year(school_obj):
 	school = School.query.filter(School.id == school_obj.id).first()
-	if school.ratings: 
+	if school.ratings:
 		current_year = 0
 		most_recent = [0]
-		for rating in school.ratings: 
-			if rating.year > current_year and rating.overall: 
-				current_year = rating.year 
+		for rating in school.ratings:
+			if rating.year > current_year and rating.overall:
+				current_year = rating.year
 				most_recent[0] = rating
 		return most_recent[0].year
 
@@ -76,10 +77,10 @@ def most_recent_rating_year(school_obj):
 
 def school_sats_year(school_obj, year):
 	school = School.query.filter(School.id == school_obj.id).first()
-	if school.sats: 
+	if school.sats:
 		return [school.sats[0].math_avg, school.sats[0].reading_avg]
-	else: 
-		return [0, 0] 
+	else:
+		return [0, 0]
 
 def sats_rating_year_data(year):
 	school_names = []
@@ -98,12 +99,12 @@ def sats_rating_year_data(year):
 			school_names.append(school.name)
 	return [school_names, school_math_sats, school_reading_sats, school_ratings]
 
-def attendance_percentage_school_year(school_obj, year): 
+def attendance_percentage_school_year(school_obj, year):
 	school = School.query.filter(School.id == school_obj.id).first()
-	response = 0 
-	if school.attendance_years: 
-		for ay in school.attendance_years: 
-			if ay.year == year and ay.total_absent != 0 and ay.total_present != 0: 
+	response = 0
+	if school.attendance_years:
+		for ay in school.attendance_years:
+			if ay.year == year and ay.total_absent != 0 and ay.total_present != 0:
 				response = round(float(ay.total_absent/ay.total_present), 3)
 	return response
 
@@ -172,9 +173,12 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 ratings = ['1', '2' ,'3', '4']
 
-app2.layout = html.Div([
+app2.layout = html.Div(children=[
+dcc.Tabs(id="tabs", children=[
+	dcc.Tab(id='sat', label='Math AVG SAT',
+		children=[
 	dcc.Graph(
-		id='life-exp-vs-gdp',
+		id='math_avg_sat',
 		figure={
 			'data': [
 				go.Scatter(
@@ -195,11 +199,40 @@ app2.layout = html.Div([
 				yaxis={'title': 'Absent:Present Ratio'},
 				margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
 				legend={'x': 0, 'y': 1},
-				hovermode='closest'
-			)
-		}
-	)
-])
+				hovermode='closest')}
+			)]
+		),
+		dcc.Tab(id='rat', label='READING AVG SAT',
+            children=[
+        dcc.Graph(
+			id='read_avg_sat',
+			figure=
+				{'data': [
+					go.Scatter(
+						x= mega_list_2013[1],
+						y= mega_list_2013[3],
+						text= mega_list_2013[0],
+						mode= 'markers',
+						opacity= 0.7,
+						marker={
+							'size': 15,
+							'line': {'width': 0.5, 'color': 'white'}
+						},
+						name= i
+					) for i in ratings
+				],
+				'layout': go.Layout(
+					xaxis={'type': 'log', 'title': 'Sat Scores - Read'},
+					yaxis={'title': 'Absent:Present Ratio'},
+					margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+					legend={'x': 0, 'y': 1},
+					hovermode='closest')}
+					)
+				])
+			])
+		])
+
+
 
 
 # app.layout = html.Div(
@@ -223,17 +256,17 @@ app2.layout = html.Div([
 #         ])
 #     ]
 # )
-def reset_total_attendance(): 
-	for ay in Attendance_Year.query.all(): 
-		ay.total_absent = 0 
-		ay.total_present = 0 
+def reset_total_attendance():
+	for ay in Attendance_Year.query.all():
+		ay.total_absent = 0
+		ay.total_present = 0
 		db.session.add(ay)
-		db.session.commit() 
+		db.session.commit()
 
 # reset_total_attendance()
 def load_total_attendance():
-	for ay in Attendance_Year.query.all(): 
-		if ay.grade_9_absent: 
+	for ay in Attendance_Year.query.all():
+		if ay.grade_9_absent:
 			ay.total_absent += ay.grade_9_absent
 			ay.total_present += ay.grade_9_present
 		if ay.grade_10_absent:
@@ -246,14 +279,14 @@ def load_total_attendance():
 			ay.total_absent += ay.grade_12_absent
 			ay.total_present += ay.grade_12_present
 		db.session.add(ay)
-		db.session.commit() 
+		db.session.commit()
 
 # load_total_attendance()
 		# ay.total_absent = ay.grade_9_absent + ay.grade_10_absent + ay.grade_11_absent + ay.grade_12_absent
 		# ay.total_present = ay.grade_9_present + ay.grade_10_present + ay.grade_11_present + ay.grade_12_present
 
-		# db.session.add(ay) 
+		# db.session.add(ay)
 		# db.session.commit()
 
 # load_total_attendance()
-#name, math, reading, rating 
+#name, math, reading, rating

@@ -26,7 +26,7 @@ app.layout = html.Div(
         dcc.Tab(id='sat', label='sat for 2012',
             children=[
             dcc.Graph(figure=
-            {'data': sat_avg(),
+            {'data': overall_rating(),
             'layout': {}})
             ]
         ),
