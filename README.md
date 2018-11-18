@@ -13,7 +13,9 @@ Please click on the following to visit the raw data:
 Problems 
 ------------
 We noticed that our files had multiple erroneous data, either missing information or input was incorrect. We had to standardized everything.
-*Chad, input all the hard work you did here*
+
+**Chad, input all the hard work you did here**
+
 After cleaning and aggregating all data into one mega list (mega_data), we started to seed and graph.
 
 What did the Data say
