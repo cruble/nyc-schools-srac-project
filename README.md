@@ -4,9 +4,9 @@ We wanted to check if there was a relationship between New York City Public High
 
 #Source
 Please click on the following to visit the raw data:
-[Rating](https://data.cityofnewyork.us/Education/2005-2017-School-Quality-Review-Ratings/9n9z-hh9p)
-[School Attendance](https://data.cityofnewyork.us/Education/2012-2017-Historical-Monthly-Grade-Level-Attendanc/wed3-5i35)
-[SAT Scores](https://data.cityofnewyork.us/Education/2012-SAT-Results/f9bf-2cp4)
+[Rating](https://data.cityofnewyork.us/Education/2005-2017-School-Quality-Review-Ratings/9n9z-hh9p), 
+[School Attendance](https://data.cityofnewyork.us/Education/2012-2017-Historical-Monthly-Grade-Level-Attendanc/wed3-5i35), 
+[SAT Scores](https://data.cityofnewyork.us/Education/2012-SAT-Results/f9bf-2cp4), 
 
 #Problems with the datas
 We noticed that our files had multiple erroneous data, either missing information or input was incorrect. We had to standardized everything.
