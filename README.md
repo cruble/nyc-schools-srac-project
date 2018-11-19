@@ -12,19 +12,35 @@ Please click on the following to visit the raw data:
 
 Problems 
 ------------
-We noticed that our files had multiple erroneous data, either missing information or input was incorrect. We had to standardized everything.
-
-**Chad, input all the hard work you did here**
-
+We noticed that our files had multiple erroneous data, either missing information or input was incorrect. We had to standardized everything. This took us the longest amounts of time as we had to create multiple different sets of nested dictionaries and from that create a massive list that will contain all our necessary information.
 After cleaning and aggregating all data into one mega list (mega_data), we started to seed and graph.
 
 What did the Data say
 --------------
+**Rating color breakdown:**
+>Red= School rated as 1, lowest rating possible (graph interchange between 0 and 1)
 
-<img src="https://user-images.githubusercontent.com/41834786/48682919-94367580-eb78-11e8-92b6-9707c7ed05dc.png" width="90%"></img> <img src="https://user-images.githubusercontent.com/41834786/48682920-94367580-eb78-11e8-97cb-dbdfa2957b69.png" width="90%"></img> 
+>Blue= School rated as 2, second lowest rating possible
+
+>Purple= School rated as 3, middle ground of ratings
+
+>Green= School rated as 4, considered high rating
+
+>Orange= School rated as 5, highest possible rating with Stuvesant having the highest score
+
+*Notice we have a red with an absent ratio above 1 which is not possible. This is most likely due to clerical error from the original data source, where the wrong information of absents and presents for that school was input into the original database*
+
+
+<img src="https://user-images.githubusercontent.com/41834786/48682919-94367580-eb78-11e8-92b6-9707c7ed05dc.png" width="90%">
+
+This graph is showing the average math SAT scores of New York City public high schools. 
+
+<img src="https://user-images.githubusercontent.com/41834786/48683363-bd580580-eb7a-11e8-9667-271fe2a0d9c1.png" width="90%"></img> 
+
+This graph is showing the average reading SAT scores of New York City public high schools. 
 
 We noticed that there is indeed a relationship between a school's official rating and it's student performance.
-School that were rated 4 or higher (out of 5) had a lower absent to present ratio as well as scoring higher on the SAT. School with rating of 2 and 3 were similar and more clustered together to the mid-range SAT scores while also having a higher absent to present ratio compared to 4 and 5. Ratings of 0 and 1 had by far the highest absent to present ratio while also having low to mid range SAT scores.
+School that were rated 4 or higher (out of 5) had a lower absent to present ratio as well as scoring higher on the SAT. School with rating of 2 and 3 were similar and more clustered together to the mid-range SAT scores while also having a higher absent to present ratio compared to 4 and 5. Ratings 1 had by far the highest absent to present ratio while also having low to mid range SAT scores.
 
 Result
 ---------------
