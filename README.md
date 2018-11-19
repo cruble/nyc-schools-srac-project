@@ -20,6 +20,9 @@ After cleaning and aggregating all data into one mega list (mega_data), we start
 
 What did the Data say
 --------------
+
+<img src="https://user-images.githubusercontent.com/41834786/48682919-94367580-eb78-11e8-92b6-9707c7ed05dc.png" width="90%"></img> <img src="https://user-images.githubusercontent.com/41834786/48682920-94367580-eb78-11e8-97cb-dbdfa2957b69.png" width="90%"></img> 
+
 We noticed that there is indeed a relationship between a school's official rating and it's student performance.
 School that were rated 4 or higher (out of 5) had a lower absent to present ratio as well as scoring higher on the SAT. School with rating of 2 and 3 were similar and more clustered together to the mid-range SAT scores while also having a higher absent to present ratio compared to 4 and 5. Ratings of 0 and 1 had by far the highest absent to present ratio while also having low to mid range SAT scores.
 
