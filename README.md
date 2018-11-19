@@ -26,7 +26,7 @@ What did the Data say
 
 >Green= School rated as 4, considered high rating
 
->Orange= School rated as 5, highest possible rating with Stuvesant having the highest score
+>Orange= School rated as 5, highest possible rating 
 
 *Notice we have a red with an absent ratio above 1 which is not possible. This is most likely due to clerical error from the original data source, where the wrong information of absents and presents for that school was input into the original database*
 
@@ -39,8 +39,7 @@ This graph is showing the average math SAT scores of New York City public high s
 
 This graph is showing the average reading SAT scores of New York City public high schools. 
 
-We noticed that there is indeed a relationship between a school's official rating and it's student performance.
-School that were rated 4 or higher (out of 5) had a lower absent to present ratio as well as scoring higher on the SAT. School with rating of 2 and 3 were similar and more clustered together to the mid-range SAT scores while also having a higher absent to present ratio compared to 4 and 5. Ratings 1 had by far the highest absent to present ratio while also having low to mid range SAT scores.
+We noticed that there is indeed a relationship between a school's official rating and it's student performance. Although most of the schools were indeed clustered around the 350-400 SAT school range, schools that were rated 4 or higher (out of 5) had a lower absent to present ratio and are generally found in the higher SAT score than school with lower ratings. Schools with rating of 2 and 3 were similar and more clustered together to the mid-range SAT scores while also having a higher absent to present ratio compared to 4 and 5. Ratings 1 had by far the highest absent to present ratio while also having low to mid range SAT scores.
 
 Result
 ---------------
@@ -49,3 +48,5 @@ Our data shows that there is a positive correlation between a school's official 
 Future Work
 ---------------------
 We were only able to get information for one year of school, school year 2012-2013. We requested a freedom of information from NYC DOE and if that goes through we will have more data to work with. Then we can compare a school's change in rating over the course of several years and student performance for better validation of our results.
+
+We also would like to perform a T-test with ANOVA and compare it to Critical Value to see if there is a significant relationship between school ratings and student performance.
