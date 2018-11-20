@@ -20,6 +20,7 @@ df = pd.read_csv('Schools2013.csv', sep='\t')
 
 
 app.layout = html.Div(children=[
+html.H1('NYC Public School Attendance, Rating and Student Performance'),
 dcc.Tabs(id="tabs", children=[
 	dcc.Tab(id='satmath', label='Math AVG SAT',
 		children=[
@@ -32,18 +33,18 @@ dcc.Tabs(id="tabs", children=[
                     y=df[df['Rating'] == i]['Attendance_Ratio'],
                     text=df[df['Rating'] == i]['Name'],
                     mode='markers',
-                    showlegend= False,
+                    # showlegend= False,
                     opacity=0.7,
                     marker={
                         'size': 15,
                         'line': {'width': 0.5, 'color': 'black'}
                     },
                     name=str(i)
-                ) for i in df.Rating[:].unique()
+                ) for i in df.Rating.unique()
             ],
             'layout': go.Layout(
                 xaxis={'type': 'log', 'title': 'Math Average'},
-                yaxis={'title': 'Attendance_Ratio'},
+                yaxis={'title': 'Absence Ratio'},
                 margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
                 legend={'x': 0, 'y': 1},
                 hovermode='closest'
@@ -62,7 +63,7 @@ dcc.Tabs(id="tabs", children=[
                         y=df[df['Rating'] == i]['Attendance_Ratio'],
                         text=df[df['Rating'] == i]['Name'],
                         mode='markers',
-                        showlegend= False,
+                        # showlegend= False,
                         opacity=0.7,
                         marker={
                             'size': 15,
@@ -73,7 +74,7 @@ dcc.Tabs(id="tabs", children=[
                 ],
                 'layout': go.Layout(
                     xaxis={'type': 'log', 'title': 'Reading Average'},
-                    yaxis={'title': 'Attendance_Ratio'},
+                    yaxis={'title': 'Absence_Ratio'},
                     margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
                     legend={'x': 0, 'y': 1},
                     hovermode='closest'
